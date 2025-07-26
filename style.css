@@ -1,133 +1,61 @@
-/* A set of default styles */
-:root {
-  /* Generic sizing for the page */
-  --wrapper-height: 100vh;
-
-  /* Fonts for different elements */
-  --font-family: sans-serif;
-  --font-family-list: monospace;
-
-  /* Colors you'll see cascade through the elements */
-  --color-bg: #99ddff; /* Used for the page body background */
-  --color-bg-alt: #33b1ff; /* Used for social icons on hover */
-  --color-text-main: #004099; /* List text ann social icons on hover */
-  --color-primary: #006aff; /* Headers and borders */
-  --color-highlight: #e7f7fe; /* Highlights */
-}
-
-/* Basic page style resets */
+/* Basic Reset */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-[hidden] {
-  display: none !important;
-}
 
-/* Page structure */
 body {
-  font-family: var(--font-family);
-  background-color: var(--color-bg);
-  text-align: center;
-  margin: 0;
-  font-size:large;
-}
-/* Page structure */
-.wrapper {
-  min-height: var(--wrapper-height);
-  display: grid;
-  place-items: center;
-  margin: 0;
-  padding:1rem 2rem;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: radial-gradient(#0d0d0d, #000000);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Poppins', sans-serif;
 }
 
-.illustration {
-  max-width:30%;
-  margin:1rem 0 2rem 0;
-  animation: 1s ease-out 0s 1 spinIn;
-}
-@keyframes spinIn {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.illustration-404 {
-  max-width:30%;
-  margin:1rem 0 2rem 0;
-  animation: 1s ease-out 0s 1 spinUp;
-  filter: grayscale(100%);
-  animation-fill-mode: forwards;
-} 
-@keyframes spinUp {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(180deg);
-  }
+/* Madara Image Styling */
+#madara-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  max-width: 90vw;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-in-out;
+  z-index: 2;
+  filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.5));
 }
 
-/* Typography */
-p {
-  margin: 1rem;
-  line-height: 1.3em;
+/* Chakra Aura Glow */
+#chakra-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.4) 0%, transparent 80%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: all 0.2s ease-in-out;
+  filter: blur(40px);
+  opacity: 0.3;
+  pointer-events: none;
 }
-p,
-h1,
-h2,
-h3,
-h4,
-h5 {
-  color: var(--color-text-main);
+
+/* Attack Flash Effect */
+.attack-flash {
+  box-shadow: 0 0 80px 40px rgba(255, 0, 0, 0.75);
+  animation: flash 0.1s ease-out;
 }
-h1 {
-  display: inline-flex;
-  color: var(--color-primary);
-  justify-content: center;
-}
-/* Link styles */
-a:link,
-a:visited {
-  text-decoration: none;
-  border-bottom: 2px solid var(--color-primary);
-  color: var(--color-primary);
-  transition: background 0.2s linear;
-  font-weight: bold;
-}
-a:hover,
-a:active,
-a:focus {
-  background: var(--color-primary);
-  color:var(--color-highlight);
-}
-/* Navigation grid */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem auto 0;
-  padding: 1.5rem 0 0.5rem 0;
-  width: 100%;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: flex-end;
-}
-a.remix {
-  background: var(--color-bg-alt);
-  color:var(--color-highlight);
-  border: 2px solid var(--color-highlight);
-  border-radius: 5px;
-  padding:0.5rem;
-  font-weight:bold;
-}
-a.remix:hover {
-  background: var(--color-primary);
-  color:var(--color-highlight);
+
+@keyframes flash {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
 }
